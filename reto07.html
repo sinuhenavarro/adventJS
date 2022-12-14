@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 07</title>
+    <script>
+    function getGiftsToRefill(a1, a2, a3) {
+        let calalog = []
+        let a = []
+        a1.forEach(e => {
+            if(!calalog.includes(e)) calalog.push(e)
+        });
+        a2.forEach(e => {
+            if(!calalog.includes(e)) calalog.push(e)
+        });
+        a3.forEach(e => {
+            if(!calalog.includes(e)) calalog.push(e)
+        });
+        console.log(calalog)
+
+        calalog.forEach(e => {
+            let i = 0
+            if(a1.includes(e)) i++
+            if(a2.includes(e)) i++
+            if(a3.includes(e)) i++
+
+            if(i<2) a.push(e)
+
+
+        });
+        console.log(a)
+        return a
+    }
+  
+    </script>
+</head>
+<body>
+    <h1>Reto 07</h1>
+    <script>
+
+        const a1 = ['bici', 'coche', 'bici', 'bici']
+        const a2 = ['coche', 'bici', 'muñeca', 'coche']
+        const a3 = ['bici', 'pc', 'pc']
+
+        /* El almacén a1 tiene "bici" y "coche".
+        El almacén a2 tiene "coche", "bici" y "muñeca".
+        El almacén a3 tiene "bici" y "pc".
+
+        El regalo "muñeca" y "pc" sólo están en los almacenes a2 y a3 respectivamente.
+        */
+
+        const calalog = getGiftsToRefill(a1, a2, a3) // ['muñeca', 'pc']
+    </script>
+</body>
+</html>
+
+
+

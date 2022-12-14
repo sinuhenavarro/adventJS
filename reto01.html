@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function wrapping(gifts) {
+            let wrapped = []
+            for(let i = 0; i < gifts.length; i++){
+                var word = gifts[i]
+                word = "\n*" + word + "*\n"
+                for(let j = 0; j < gifts[i].length+2; j++){
+                    word = "*" + word + "*"
+                }
+                wrapped.push(word)
+            }
+            return wrapped
+        }
+    </script>
+</head>
+<body>
+    <script>
+        const gifts = ['cat', 'game', 'socks']
+        const wrapped = wrapping(gifts)
+        console.log(wrapped)
+        
+        /* [
+        "*****\\n*cat*\\n*****",
+        "******\\n*game*\\n******",
+        "*******\\n*socks*\\n*******"
+        ] */
+        </script>
+</body>
+</html>
+
+
+

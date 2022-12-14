@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 04</title>
+    <script>
+
+function fitsInOneBox(boxes) {
+  let fit = true
+  if(boxes.length < 2) return false
+  else{
+    //Recorre el array de objetos para extraer si hay una caja donde quepan todas las otras
+    while(boxes.length > 1){
+      console.log(boxes)
+      let lMax = boxes[0].l
+      let lIndexMax = 0
+      let wMax = boxes[0].w
+      let wIndexMax = 0
+      let hMax = boxes[0].h
+      let hIndexMax = 0
+      //Calculamos el índice del máximo largo
+      for (let i = 1; i < boxes.length; i++) {
+          if(lMax < boxes[i].l) {
+            lMax = boxes[i].l
+            lIndexMax = i
+          }
+        }
+      //Calculamos el índice del máximo ancho
+      for (let i = 1; i < boxes.length; i++) {
+        if(wMax < boxes[i].w) {
+          wMax = boxes[i].w
+          wIndexMax = i
+        }
+      }
+      //Calculamos el índice del máximo alto
+      for (let i = 1; i < boxes.length; i++) {
+        if(hMax < boxes[i].h) {
+          hMax = boxes[i].h
+          hIndexMax = i
+        }
+      }
+
+      let bigger
+      if(hIndexMax == wIndexMax == hIndexMax) 
+        bigger = hIndexMax
+      else bigger = -1
+
+      if(bigger > 0){
+        //Hay una caja grande que puede contener al resto. La sacamos del array y sigue buscando
+        fit = true
+        console.log('Exraen el ' + bigger)
+        //boxes = arrayRemove(boxes, bigger)
+        //Elimina la caja mas grande
+        boxes = boxes.filter(function(ele, i){ 
+          return bigger != i; 
+        });   
+        console.log(boxes)
+      }
+      else{
+        //Ha terminado
+        console.log("false")
+        return false
+      } 
+    }
+    console.log("true")
+    return fit
+  }
+}
+
+
+
+
+    </script>
+</head>
+<body>
+    <h1>Reto 04</h1>
+    <script>
+/*
+fitsInOneBox([
+  { l: 1, w: 1, h: 1 },
+  { l: 2, w: 2, h: 2 }
+]) // true
+
+let boxes = [
+  { l: 1, w: 1, h: 1 },
+  { l: 2, w: 2, h: 2 },
+  { l: 3, w: 1, h: 3 }
+]
+fitsInOneBox(boxes) // false
+fitsInOneBox([
+  { l: 1, w: 1, h: 10 },
+  { l: 3, w: 3, h: 12 },
+  { l: 2, w: 2, h: 1 },
+]) //Fasle
+
+
+*/
+
+boxes = [
+  { l: 1, w: 1, h: 1 },
+  { l: 3, w: 3, h: 3 },
+  { l: 2, w: 2, h: 2 }
+]
+fitsInOneBox(boxes) // true
+
+fitsInOneBox([
+  { l: 1, w: 1, h: 10 },
+  { l: 3, w: 3, h: 12 },
+  { l: 2, w: 2, h: 1 },
+]) //Fasle
+    </script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 06</title>
+    <script>
+        function createCube(size) {
+            let cube = ''
+            for (let i = 0; i < size; i++) {
+                cube += ''.padEnd(size-i-1, ' ')
+                cube += ''.padEnd(i*2+2, '/\\')
+                cube += ''.padEnd(size*2, '_\\')
+            }
+            j = size
+            for (let i = size; i > 0; i--) {
+                cube += ''.padEnd(size-i, ' ')
+                cube += ''.padEnd(i*2, '\\/')
+                cube += ''.padEnd(size*2, '_/')
+                if(i>1) cube += '\n'
+            }
+ 
+            console.log(cube)
+            return cube 
+        }
+    </script>
+</head>
+<body>
+    <h1>Reto 06</h1>
+    <script>
+
+        const cubeOfTwo = createCube(15)
+
+    </script>
+</body>
+</html>
+
+
+
